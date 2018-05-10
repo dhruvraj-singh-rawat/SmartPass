@@ -5,6 +5,7 @@ from sqlalchemy import create_engine
  
 Base = declarative_base()
 
+
 class UserTable(Base):
     __tablename__ = 'user_table'
    
@@ -17,8 +18,8 @@ class UserTable(Base):
 
     id = Column(Integer, primary_key = True)
     
-    statementhistory=relationship('TravelHistory',backref='account_holder',lazy='dynamic')
-    statementtable=relationship('TravelStatement',backref='account_holder',lazy='dynamic')
+    travel_history=relationship('TravelHistory',backref='account_holder',lazy='dynamic')
+    travel_statement=relationship('TravelStatement',backref='account_holder',lazy='dynamic')
 
     @property
     def serialize(self):
