@@ -2,32 +2,13 @@ import serial
 import os
 import requests
 import json                                                  #import serial module
-from gpiozero import Buzzer
-from time import sleep
-
-buzzer = Buzzer(17)
-
-def not_authenticated_buzzer():
-	a=2
-	while a:
-		buzzer.on()
-		sleep(.4)
-		buzzer.off()
-		sleep(.7)
-
-def authenticated_buzzer():
-
-	buzzer.on()
-	sleep(2)
-	buzzer.off()
-	sleep(.1)
 
 def read_rfid ():
    ser = serial.Serial ("/dev/ttyAMA0")                           #Open named port 
    ser.baudrate = 9600                                            #Set baud rate to 9600
    data = ser.read(12)                                            #Read 12 characters from serial port to data
    ser.close ()                                                   #Close port
-   return data                                                    #Return data
+   return data                                                  #Return data
 
 
 while (1):
@@ -43,7 +24,5 @@ while (1):
 
 		if data1['status']==1:
 			print ('Allowed to enter')
-			authenticated_buzzer()
 		else:
 			print 'NOT Allowed\n\n'
-			not_authenticated_buzzer()

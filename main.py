@@ -157,6 +157,6 @@ def api_responce():
 
 if __name__ == '__main__':
 
-    app.debug = True
-    # app.run(host='192.168.43.174', port=5000)	
+    #app.debug = True
+    app.run(host='192.168.43.174', port=5000)	
     app.run(debug=True)
