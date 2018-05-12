@@ -6,6 +6,7 @@ from flask_admin.contrib.sqla import ModelView
 import json
 import datetime
 import time 
+import smtplib
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///digitalpass.db'
@@ -48,6 +49,36 @@ admin.add_view(ModelView(user,db.session))
 admin.add_view(ModelView(history,db.session))
 admin.add_view(ModelView(statement,db.session))
 
+#Mailing Server Implementation
+
+def mailer_server(reciever_email,datee,timee,leftee):
+
+	# Python code to illustrate Sending mail from 
+	# your Gmail account 
+	import smtplib
+	 
+	# creates SMTP session
+	s = smtplib.SMTP('smtp.gmail.com', 587)
+
+	# start TLS for security
+	s.starttls()
+	 
+	# Authentication
+	s.login("feedbacklnmiit@gmail.com", "helloworld12345")
+	 
+	# message to be sent
+	SUBJECT="Alert: BusPass Used"
+	message_body = "Your Bus was used on "+str(datee)+" at "+str(timee)+" ! Remaining Trip Left "+str(leftee)
+
+	message = 'Subject: {}\n\n{}'.format(SUBJECT, message_body)
+	# sending the mail
+	s.sendmail("digitalcampuslnmiit@gmail.com", reciever_email, message)
+	 
+	# terminating the session
+	s.quit()
+
+
+
 
 # API IMPLEMENTATION 
 
@@ -60,6 +91,7 @@ def api_responce():
 
     
         user_balance = db.session.query(statement).filter_by(rfidno=rfidno).one()
+        user_info=db.session.query(user).filter_by(rfidno=rfidno).one()
 
         balance_available=int(user_balance.balance_trip)
         
@@ -75,6 +107,8 @@ def api_responce():
             trip_update=history(name=user_balance.name,rfidno=rfidno,day=day,time=timee)
             db.session.add(trip_update)
             db.session.commit()
+
+            mailer_server(user_info.email,day,timee,balance_available)
 
             output={
                 'status':1,
