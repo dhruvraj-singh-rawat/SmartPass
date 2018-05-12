@@ -1,12 +1,13 @@
-from flask import Flask 
+from flask import Flask,render_template 
 from flask_sqlalchemy import SQLAlchemy 
 from flask import Flask, render_template, request, redirect, jsonify, url_for, flash
-from flask_admin import Admin 
+from flask_admin import Admin,BaseView,expose
 from flask_admin.contrib.sqla import ModelView
 import json
 import datetime
 import time 
 import smtplib
+from flask_login import UserMixin, LoginManager , current_user , login_user
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///digitalpass.db'
@@ -43,11 +44,22 @@ class statement(db.Model):
     rfidno  = db.Column(db.String(50))
     name = db.Column(db.String(250), nullable=False)
 
+# Custom Model Views
+
+class ExitView(BaseView):
+	@expose('/')
+	def index(self):
+		return render_template('logout.html')
+		#redirect('http://127.0.0.1:5000/login')
+
+
+	
 
 
 admin.add_view(ModelView(user,db.session))
 admin.add_view(ModelView(history,db.session))
 admin.add_view(ModelView(statement,db.session))
+admin.add_view(ExitView(name='Logout',endpoint='logout'))
 
 #Mailing Server Implementation
 
@@ -77,8 +89,22 @@ def mailer_server(reciever_email,datee,timee,leftee):
 	# terminating the session
 	s.quit()
 
+@app.route('/login',methods=['GET','POST'])
+def login():
+	error=None
+	if request.method =='POST':
+		if request.form['username'] != 'admin' or request.form['password'] !='admin':
+			error = 'Invalid credentials.Please try again.'
+		else:
+			return redirect('/admin/user/')
+
+	return render_template('login.html',error=error)
 
 
+
+
+# @login.user_loader
+# def load_user()
 
 # API IMPLEMENTATION 
 
@@ -132,5 +158,5 @@ def api_responce():
 if __name__ == '__main__':
 
     app.debug = True
-    app.run(host='192.168.43.174', port=5000)	
+    # app.run(host='192.168.43.174', port=5000)	
     app.run(debug=True)
