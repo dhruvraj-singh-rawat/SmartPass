@@ -4,6 +4,9 @@ from flask import Flask, render_template, request, redirect, jsonify, url_for, f
 from flask_admin import Admin 
 from flask_admin.contrib.sqla import ModelView
 import json
+import datetime
+import time 
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI']= 'sqlite:///digitalpass.db'
 app.config['SECRET_KEY']='mysecret'
@@ -29,7 +32,8 @@ class history(db.Model):
     id = db.Column(db.Integer, primary_key = True)
     name = db.Column(db.String(250), nullable=False)    
     rfidno  = db.Column(db.String(50))
-    date = db.Column(db.DateTime)
+    day = db.Column(db.String(50))
+    time = db.Column(db.String(50))
 
 class statement(db.Model):
 
@@ -64,7 +68,14 @@ def api_responce():
             balance_available=balance_available-1
             user_balance.balance_trip=balance_available
             db.session.commit()
-            
+
+            day=datetime.datetime.now().strftime("%d/%m/%y")
+            timee=time.strftime("%H:%M:%S")
+
+            trip_update=history(name=user_balance.name,rfidno=rfidno,day=day,time=timee)
+            db.session.add(trip_update)
+            db.session.commit()
+
             output={
                 'status':1,
 
@@ -85,4 +96,7 @@ def api_responce():
         return response
 
 if __name__ == '__main__':
+
+    app.debug = True
+    app.run(host='192.168.43.174', port=5000)	
     app.run(debug=True)
