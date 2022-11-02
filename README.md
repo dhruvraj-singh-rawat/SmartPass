@@ -29,4 +29,4 @@
 5. The response is transmitted back to the Raspberry pi via WIFI and it parses the information and takes the appropriate step
 
 
-![Flowchart](/screenshots/Flowchart.png "Flowchart")
+![Flowchart](/Screenshots/Flowchart.png "Flowchart")
