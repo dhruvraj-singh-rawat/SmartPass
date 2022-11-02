@@ -30,3 +30,9 @@
 
 
 ![Flowchart](/Screenshots/Flowchart.png "Flowchart")
+
+## Tech Stack
+
+__POS-END:__ Python, Request , Python Json
+__Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework 
+
