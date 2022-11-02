@@ -27,3 +27,6 @@
 3. The Raspberry pi encodes the information (rfid_no) into the Json format and transmit it to the Server.
 4. The Server parses the information and check the statement balance regarding that rfid_no in SQL database and return a Boolean response signifying whether to grant access or not.
 5. The response is transmitted back to the Raspberry pi via WIFI and it parses the information and takes the appropriate step
+
+
+![Flowchart](/screenshots/Flowchart.png "Flowchart")
