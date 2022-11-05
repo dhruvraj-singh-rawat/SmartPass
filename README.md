@@ -17,8 +17,13 @@
 ## Solution Tech 
 
 - Build a real-time system RFID powered smart pass access control system using EM-18 RFID Module and Raspberry-pi.
-- Also, to implement a server in FLASK framework with dedicated SQL database maintaining all the user’s information.
+- Implement a server in FLASK framework with dedicated SQL database maintaining all the user’s information.
 - Establish the interfacing between the Raspberry pi and the Remote Server. 
+
+## Tech Stack
+
+__POS-END:__ Python, Request , Python Json
+__Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework 
 
 ## Control Flow 
 
@@ -31,8 +36,5 @@
 
 ![Flowchart](/Screenshots/Flowchart.png "Flowchart")
 
-## Tech Stack
 
-__POS-END:__ Python, Request , Python Json
-__Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework 
 
