@@ -14,23 +14,7 @@
 - This project is clearly useful in the scenario of LNMIIT, where there is a huge rush outside the gate whenever the college bus arrives from the city to get their bus pass punched.
 - Our college ID’s are embedded with a RFID identification chip inside with a unique code allotted to all the students thus if we combine with server containing the details to process students faster.
 
-## Control Flow 
-
-1. Student taps its RFID card in the RFID scanner.
-2. The Information (unique rfid_no) is transmitted to the Raspberry pi via serial port.
-3. The Raspberry pi encodes the information (rfid_no) into the Json format and transmit it to the Server.
-4. The Server parses the information and check the statement balance regarding that rfid_no in SQL database and return a Boolean response signifying whether to grant access or not.
-5. The response is transmitted back to the Raspberry pi via WIFI and it parses the information and takes the appropriate step
-
-
-![Flowchart](/Screenshots/Flowchart.png "Flowchart")
-
-
-## Circuit Diagram 
-
-![Flowchart](/Screenshots/CircuitDiagram.png "Circuit Diagram")
-
-## Solution Tech 
+## Solution Components 
 
 - Build a real-time system RFID powered smart pass access control system using EM-18 RFID Module and Raspberry-pi.
 - Implement a server in FLASK framework with dedicated SQL database maintaining all the user’s information.
@@ -41,3 +25,20 @@
 __POS-END:__ Python, Request , Python Json
 
 __Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework 
+
+## Control Flow 
+
+1. Student taps its RFID card in the RFID scanner.
+2. The Information (unique rfid_no) is transmitted to the Raspberry pi via serial port.
+3. The Raspberry pi encodes the information (rfid_no) into the Json format and transmit it to the Server.
+4. The Server parses the information and check the statement balance regarding that rfid_no in SQL database and return a Boolean response signifying whether to grant access or not.
+5. The response is transmitted back to the Raspberry pi via WIFI and it parses the information and takes the appropriate step
+
+![Flowchart](/Screenshots/Flowchart.png "Flowchart")
+
+
+## Circuit Diagram 
+
+![Flowchart](/Screenshots/CircuitDiagram.png "Circuit Diagram")
+
+
