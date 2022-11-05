@@ -1,3 +1,12 @@
+## Goal
+
+To implement a RFID based access control system powered by raspberry pi with webserver server that can securely verify each passing student bus-pass status in timely and fast fashion. The project to have following functional elements: 
+
+- Retrieval RFID information from the user via sensor.
+- Transmission of the information to the server via raspberry pi.
+- On server, Validation of the information weather the RFID bearer is authorized to enter or not.
+- Returning back of the output to the Raspberry pi & asynchronously mailing user.
+
 ## Problem Statement
 
 - In LNMIIT we always carry our Institute ID with us thus if we need to board a college bus from the main gate we have to show our bus pass and well as our college ID.
@@ -41,4 +50,14 @@ __Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework
 
 ![Flowchart](/Screenshots/CircuitDiagram.png "Circuit Diagram")
 
+## Admin Dashboard 
+
+![Flowchart](/Screenshots/UI1.png "Dashboard")
+![Flowchart](/Screenshots/UI2.png "Dashboard")
+
+## Future Work
+
+- A custom hardware-based implementation of the circuit can be done, by first prototyping it in FPGA then making an ASIC implementation.
+- The server-side code can also be improved to detect fraud by using a Machine learning model.
+- Furthermore, the RFID reading range can be increased by using the powerful reader by supply power via external power source.
 
