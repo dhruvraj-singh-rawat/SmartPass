@@ -17,8 +17,14 @@
 ## Solution Tech 
 
 - Build a real-time system RFID powered smart pass access control system using EM-18 RFID Module and Raspberry-pi.
-- Also, to implement a server in FLASK framework with dedicated SQL database maintaining all the user’s information.
+- Implement a server in FLASK framework with dedicated SQL database maintaining all the user’s information.
 - Establish the interfacing between the Raspberry pi and the Remote Server. 
+
+## Tech Stack
+
+__POS-END:__ Python, Request , Python Json
+
+__Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework 
 
 ## Control Flow 
 
@@ -27,3 +33,12 @@
 3. The Raspberry pi encodes the information (rfid_no) into the Json format and transmit it to the Server.
 4. The Server parses the information and check the statement balance regarding that rfid_no in SQL database and return a Boolean response signifying whether to grant access or not.
 5. The response is transmitted back to the Raspberry pi via WIFI and it parses the information and takes the appropriate step
+
+
+![Flowchart](/Screenshots/Flowchart.png "Flowchart")
+
+
+## Circuit Diagram 
+
+![Flowchart](/Screenshots/CircuitDiagram.png "Circuit Diagram")
+
