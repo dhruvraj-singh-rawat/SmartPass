@@ -52,8 +52,14 @@ __Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework
 
 ## Admin Dashboard 
 
+- *User Panel* : Containing details for all users in the system 
 ![Flowchart](/Screenshots/UI1.png "Dashboard")
+
+- *History Panel* : Contains authication history 
 ![Flowchart](/Screenshots/UI2.png "Dashboard")
+
+- *Statement Panel* : Contains details regarding balance trips
+![Flowchart](/Screenshots/UI3.png "Dashboard")
 
 ## Future Work
 
