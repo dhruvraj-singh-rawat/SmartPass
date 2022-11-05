@@ -14,18 +14,6 @@
 - This project is clearly useful in the scenario of LNMIIT, where there is a huge rush outside the gate whenever the college bus arrives from the city to get their bus pass punched.
 - Our college ID’s are embedded with a RFID identification chip inside with a unique code allotted to all the students thus if we combine with server containing the details to process students faster.
 
-## Solution Tech 
-
-- Build a real-time system RFID powered smart pass access control system using EM-18 RFID Module and Raspberry-pi.
-- Implement a server in FLASK framework with dedicated SQL database maintaining all the user’s information.
-- Establish the interfacing between the Raspberry pi and the Remote Server. 
-
-## Tech Stack
-
-__POS-END:__ Python, Request , Python Json
-
-__Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework 
-
 ## Control Flow 
 
 1. Student taps its RFID card in the RFID scanner.
@@ -42,3 +30,14 @@ __Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework
 
 ![Flowchart](/Screenshots/CircuitDiagram.png "Circuit Diagram")
 
+## Solution Tech 
+
+- Build a real-time system RFID powered smart pass access control system using EM-18 RFID Module and Raspberry-pi.
+- Implement a server in FLASK framework with dedicated SQL database maintaining all the user’s information.
+- Establish the interfacing between the Raspberry pi and the Remote Server. 
+
+## Tech Stack
+
+__POS-END:__ Python, Request , Python Json
+
+__Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework 
