@@ -38,4 +38,7 @@ __Backend:__ Python 2.7, Flask Framework, SQLAlchemy, Bootstrap Framework
 ![Flowchart](/Screenshots/Flowchart.png "Flowchart")
 
 
+## Circuit Diagram 
+
+![Flowchart](/Screenshots/CircuitDiagram.png "Circuit Diagram")
 
